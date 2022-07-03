@@ -1,0 +1,18 @@
+class Solution {
+public:
+     int sum(TreeNode *root,int &ma)
+   {
+        if(!root)return 0;
+        int l=max(0,sum(root->left,ma));
+        int r=max(0,sum(root->right,ma));
+        ma=max(ma,l+r+root->val);
+        return root->val+max(l,r);
+   }
+    int maxPathSum(TreeNode* root) {
+         int ma=INT_MIN;
+     sum(root,ma);
+     return ma;
+    }
+};
+
+https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/
